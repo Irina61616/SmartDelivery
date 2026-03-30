@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDelivery</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🚚 Калькулятор стоимости доставки</h1>
+            <p class="subtitle">Рассчитайте стоимость доставки вашего груза</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="calculator-card">
+            <h2>Параметры доставки</h2>
+            
+            <div class="input-group">
+                <label for="distance">Расстояние (км):</label>
+                <input type="range" id="distance" min="1" max="1000" value="100">
+                <div class="value-display">
+                    <span id="distance-value">100</span> км
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="weight">Вес груза (кг):</label>
+                <input type="number" id="weight" min="1" max="1000" value="10">
+            </div>
+
+            <div class="input-group">
+                <label for="cargo-type">Тип груза:</label>
+                <select id="cargo-type">
+                    <option value="standard">Стандартный</option>
+                    <option value="fragile">Хрупкий (+30%)</option>
+                    <option value="perishable">Скоропортящийся (+50%)</option>
+                    <option value="dangerous">Опасный (+100%)</option>
+                </select>
+            </div>
+
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" id="express"> Экспресс-доставка (+50%)
+                </label>
+                <label>
+                    <input type="checkbox" id="insurance"> Страховка (+10% от стоимости)
+                </label>
+                <label>
+                    <input type="checkbox" id="lift"> Подъем на этаж (+500 ₽)
+                </label>
+            </div>
+
+            <div class="result">
+                <h3>Итоговая стоимость:</h3>
+                <div class="price" id="total-price">0 ₽</div>
+                <div class="price-breakdown" id="price-breakdown"></div>
+            </div>
+
+            <button id="calculate-btn" class="calculate-btn">Рассчитать</button>
+        </div>
+
+        <div class="info-card">
+            <h3>Как это работает</h3>
+            <ul>
+                <li>Базовая стоимость: 50 ₽ за 1 км</li>
+                <li>За каждый кг груза: +10 ₽</li>
+                <li>Коэффициенты за тип груза применяются к базовой стоимости</li>
+                <li>Экспресс-доставка увеличивает стоимость на 50%</li>
+                <li>Страховка: +10% от итоговой суммы</li>
+                <li>Подъем на этаж: фиксированная надбавка 500 ₽</li>
+            </ul>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
